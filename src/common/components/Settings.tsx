@@ -1071,11 +1071,13 @@ interface MyCheckboxProps {
     value?: boolean
     onChange?: (value: boolean) => void
     onBlur?: () => void
+    ariaLabel?: string
 }
 
-function MyCheckbox({ value, onChange, onBlur }: MyCheckboxProps) {
+function MyCheckbox({ value, onChange, onBlur, ariaLabel }: MyCheckboxProps) {
     return (
         <Checkbox
+            aria-label={ariaLabel}
             checkmarkType='toggle_round'
             checked={value}
             onChange={(e) => {
@@ -3463,7 +3465,7 @@ export function InnerSettings({
                                 'Disable thinking for faster translations. Reasoning models think by default, which significantly slows down simple tasks.'
                             )}
                         >
-                            <MyCheckbox onBlur={onBlur} />
+                            <MyCheckbox ariaLabel={t('Enable Thinking')} onBlur={onBlur} />
                         </FormItem>
                         <FormItem name='defaultTranslateMode' label={t('Default Action')}>
                             <TranslateModeSelector onBlur={onBlur} />

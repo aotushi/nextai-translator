@@ -737,6 +737,7 @@ function InnerTranslator(props: IInnerTranslatorProps) {
                     ...prev,
                     provider: settings.provider,
                     engineModel: model,
+                    thinkingEnabled: settings.thinkingEnabled ?? false,
                 }
             })
         })
@@ -1034,6 +1035,7 @@ function InnerTranslator(props: IInnerTranslatorProps) {
         action?: Action
         provider?: Provider
         engineModel?: string
+        thinkingEnabled?: boolean
     }>({
         sourceLang: undefined,
         targetLang: undefined,
@@ -1418,8 +1420,8 @@ function InnerTranslator(props: IInnerTranslatorProps) {
             }
             beforeTranslate()
             const cachedKey = `translate:${translateDeps.provider ?? ''}:${translateDeps.engineModel ?? ''}:${
-                action.id
-            }:${action.rolePrompt}:${action.commandPrompt}:${
+                translateDeps.thinkingEnabled ?? false
+            }:${action.id}:${action.rolePrompt}:${action.commandPrompt}:${
                 action.outputRenderingFormat
             }:${sourceLang}:${targetLang}:${text}:${selectedWord}:${translationFlag}`
             const cachedValue = cache.get(cachedKey)

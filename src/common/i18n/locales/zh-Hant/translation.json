@@ -247,5 +247,7 @@
     "{{voice}} is ready": "{{voice}}已就緒",
     "Failed to download {{voice}}": "{{voice}}下載失敗",
     "Back": "後退",
-    "Forward": "前進"
+    "Forward": "前進",
+    "Enable Thinking": "啟用思考",
+    "Disable thinking for faster translations. Reasoning models think by default, which significantly slows down simple tasks.": "關閉思考可以加快翻譯。推理模型預設會先思考，這會增加簡單任務的等待時間。"
 }
